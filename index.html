@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Monitoring System</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- <script src="js/connect.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+        <script src="https://playground.abysscorp.org/chartjs/livecharts/dist/Chart.min.js"></script>
+        <script src="js/addUser.js"></script>
+        <style>
+            canvas {
+                display: inline-block !important;
+            }
+        </style>
+
+        <style>
+            #monitor {
+                margin:20px;
+                height:224px;
+                width:256px;
+                float: left;
+                background-image: url('css/monitor.png');
+                padding-left:30px;
+                padding-right:10px;
+                padding-top:25px;
+                padding-bottom:20px;
+                box-sizing: border-box;
+            }
+            .selection_title {
+                margin-bottom: 20px;
+            }
+            .buttonDiv {
+                margin-top: 20px;
+
+            }
+            .delete_box {
+                margin-left: 30px;
+            }
+        </style>
+
+        <script>
+            function setIpValue (){
+                const text_val = document.querySelector("#txtVal").value;
+                document.querySelector("#item1").setAttribute("value", text_val);
+            }
+
+            window.onload = function () {
+                document.querySelector("#button").addEventListener("click", setIpValue);
+                document.querySelector("#icon1").addEventListener("click", function (e) {
+                    const ip_title = document.querySelector("#ip_title");
+                    ip_title.innerHTML = document.querySelector("#item1").getAttribute("value");
+                });
+            };
+        </script>
+
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Monitoring System</a>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <i class="masthead-avatar mb-5 fas fa-desktop" style="height:200px; width:200px;"></i>
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Monitoring System</h1>
+                <!-- Icon Divider-->
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0"></p>
+            </div>
+        </header>
+        <!-- Portfolio Section-->
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Register</h2>
+                <div class ="register_box">
+
+                    <input type="text" id="ipAdress">
+                    <button class="button" id="button" onclick="add_info()">등록</button>
+
+                </div>
+
+                <!-- Portfolio Grid Items-->
+                <!--<div class="row">-->
+                    <!-- Portfolio Item 1-->
+                    <!--<div class="col-md-6 col-lg-4 mb-5">-->
+                        <!--<div class="portfolio-item mx-auto" data-toggle="modal" id="item1" data-target="#portfolioModal1" value="">-->
+                            <!--<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" id="icon1">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>-->
+                            <!--<i class="img-fluid fas fa-laptop" style="width:100%; height:70%;"></i>-->
+                            <div id="pre_set" style="display:none;" last-id="0" style="float: left">
+                                <div id="monitor">
+
+                                    <div  id="Ipdiv" class="selection_content">
+
+                                    </div>
+                                    <div class="buttonDiv" style="float: left">
+                                        <div class="connect-box"style="float: left" >
+                                            <button  data-toggle="modal" id="item1" data-target="#portfolioModal1"
+                                                     style="font-size:70%">connect</button>
+                                        </div>
+                                        <div class="delete_box " style="float: left">
+                                            <button onclick="delete_info(this)" style="font-size:70%">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="field" style=" overflow:auto;">
+
+                            </div>
+                        </div>
+                    <!--</div>-->
+
+                <!--</div>-->
+            <!--</div>-->
+        </section>
+
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright © Your Website 2020</small></div>
+        </div>
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+        <div class="scroll-to-top d-lg-none position-fixed">
+            <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h3 id="ip_title" style="height: 100px; width: 100%;"></h3>
+                                    <!-- Portfolio Modal - Image-->
+                                    <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="" /> -->
+
+                                    <div class="container">
+
+                                        <section>
+                                            <select multiple="multiple" id="myMulti">
+                                                <option>CPU</option>
+                                                <option>Memory</option>
+                                                <option>IO</option>
+                                                <option>Page fault</option>
+                                            </select>
+                                        </section>
+
+                                    </div>
+
+                                    <canvas id="chart0">
+                                    </canvas>
+
+                                    <!-- Portfolio Modal - Text-->
+                                    <button class="btn btn-primary" data-dismiss="modal">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 모니터링 관련 자바스크립트 소스 -->
+        <script src="js/scripts.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/autoline.js"></script>
+
+    </body>
+</html>
+
